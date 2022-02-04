@@ -38,12 +38,7 @@ CREATE TABLE portfolio
 	s_symbol VARCHAR(50) NOT NULL,
 	FOREIGN KEY (c_email) REFERENCES customer(email),
 	FOREIGN KEY (s_symbol) REFERENCES stock(symbol)
-);
-
-INSERT INTO portfolio(id_no, quantity)
-SELECT i AS id_no, ROUND(RANDOM()*100)
-FROM generate_series(1,500) AS i;
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											
+);																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                             %
 % Question 1.d                                                                %
@@ -61,3 +56,6 @@ FROM generate_series(1,500) AS i;
 % Question 1.f                                                                %
 %                                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+INSERT INTO portfolio(id_no, quantity)
+SELECT i AS id_no, ROUND(RANDOM()*100)
+FROM generate_series(1,500) AS i;
