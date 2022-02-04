@@ -32,7 +32,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CREATE TABLE portfolio 
 (
-	id_no NUMERIC NOT NULL,
+	entry_id NUMERIC NOT NULL,
 	quantity NUMERIC NOT NULL,
 	c_email VARCHAR(50) PRIMARY KEY,
 	s_symbol VARCHAR(50) NOT NULL,
@@ -56,6 +56,6 @@ CREATE TABLE portfolio
 % Question 1.f                                                                %
 %                                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-INSERT INTO portfolio(id_no, quantity)
-SELECT i AS id_no, ROUND(RANDOM()*100)
+INSERT INTO portfolio(entry_id, quantity)
+SELECT i AS entry_id, ROUND(RANDOM()*100)
 FROM generate_series(1,500) AS i;
