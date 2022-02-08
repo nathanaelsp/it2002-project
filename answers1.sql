@@ -193,3 +193,5 @@ insert into stock (stock_name, stock_symbol, industry, sector, market, price) va
 INSERT INTO portfolio(entry_id, quantity)
 SELECT i AS entry_id, ROUND(RANDOM()*100)
 FROM generate_series(1,500) AS i;
+
+SELECT * FROM portfolio;
