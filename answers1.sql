@@ -18,25 +18,32 @@
 % Question 1.a                                                                %
 %                                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-CREATE TABLE customer (
+CREATE TABLE IF NOT EXISTS customer (
 	full_name VARCHAR(50) NOT NULL,
 	email VARCHAR(50) PRIMARY KEY,
 	cc_number VARCHAR(50) NOT NULL,
-	cc_type VARCHAR(50) NOT NULL
+	cc_type VARCHAR(50) NOT NULL 
+		CHECK (cc_type = 'americanexpress' OR cc_type = 'visa' OR cc_type = 'mastercard')
 );
+
+DROP TABLE customer;
+SELECT * FROM customer;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                             %
 % Question 1.b                                                                %
 %                                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-CREATE TABLE stock (
-	stock_name VARCHAR(50),
-	stock_symbol VARCHAR(50),
-	industry VARCHAR(50),
-	sector VARCHAR(50),
-	market VARCHAR(50),
-	price VARCHAR(50)
+CREATE TABLE IF NOT EXISTS stock (
+	stock_name VARCHAR(100) NOT NULL,
+	stock_symbol VARCHAR(50) PRIMARY KEY,
+	industry VARCHAR(100) NOT NULL,
+	sector VARCHAR(100) NOT NULL,
+	market VARCHAR(100) NOT NULL,
+	price VARCHAR(100) NOT NULL
 );
+
+DROP TABLE stock;
+SELECT * FROM stock;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                             %
 % Question 1.c                                                                %
@@ -44,14 +51,31 @@ CREATE TABLE stock (
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CREATE TABLE portfolio 
 (
-	entry_id INT NOT NULL,
+	id INT NOT NULL,
+	c_email VARCHAR(50),
+	s_symbol VARCHAR(50),
 	quantity NUMERIC NOT NULL,
-	c_email VARCHAR(50) PRIMARY KEY,
-	s_symbol VARCHAR(50) NOT NULL,
-	FOREIGN KEY (c_email) REFERENCES customer(email),
-	FOREIGN KEY (s_symbol) REFERENCES stock(symbol)
+	FOREIGN KEY (c_email) REFERENCES customer(email)
+		ON UPDATE CASCADE
+		ON DELETE CASCADE
+		DEFERRABLE INITIALLY DEFERRED,
+	FOREIGN KEY (s_symbol) REFERENCES stock(stock_symbol)
+		ON UPDATE CASCADE
+		ON DELETE CASCADE
+		DEFERRABLE INITIALLY DEFERRED
 );
 
+INSERT INTO portfolio (id, quantity, c_email, s_symbol)
+SELECT 
+	i AS id, 
+	ROUND(RANDOM()*100), 
+	(SELECT email FROM customer ORDER BY RANDOM() LIMIT 1),
+	(SELECT stock_symbol FROM stock ORDER BY RANDOM() LIMIT 1)
+FROM generate_series(1,500) AS i;
+
+SELECT id, c_email, s_symbol, quantity FROM portfolio;
+DROP TABLE portfolio;
+DELETE from portfolio;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                             %
 % Question 1.d                                                                %
@@ -190,8 +214,4 @@ insert into stock (stock_name, stock_symbol, industry, sector, market, price) va
 % Question 1.f                                                                %
 %                                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-INSERT INTO portfolio(entry_id, quantity)
-SELECT i AS entry_id, ROUND(RANDOM()*100)
-FROM generate_series(1,500) AS i;
 
-SELECT * FROM portfolio;
