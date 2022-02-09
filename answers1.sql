@@ -51,7 +51,7 @@ SELECT * FROM stock;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CREATE TABLE portfolio 
 (
-	id INT NOT NULL,
+	id INT NOT NULL, % Can be removed I think, after implementing code 1.f
 	c_email VARCHAR(50),
 	s_symbol VARCHAR(50),
 	quantity NUMERIC NOT NULL,
@@ -214,4 +214,10 @@ insert into stock (stock_name, stock_symbol, industry, sector, market, price) va
 % Question 1.f                                                                %
 %                                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Haven't tested this idea yet, will do tomorrow
+insert into portfolio (c_email,s_symbol,quantity)
+SELECT c.email,s.stock_symbol,ROUND(RANDOM()*100)
+FROM customer AS c, stock AS s
+ORDER BY RANDOM()
+LIMIT 500
 
