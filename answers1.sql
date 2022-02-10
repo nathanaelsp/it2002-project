@@ -67,7 +67,6 @@ CREATE TABLE portfolio
 INSERT INTO customer (full_name, email, cc_number, cc_type) VALUES ('Lexine Squires', 'lsquiresf@toplist.cz', '4017951867175', 'visa');
 INSERT INTO customer (full_name, email, cc_number, cc_type) VALUES ('Gusty Carp', 'gcarpg@list-manage.com', '374283728504903', 'americanexpress');
 INSERT INTO customer (full_name, email, cc_number, cc_type) VALUES ('Renata Ivimey', 'rivimeyh@nature.com', '5010129099336699', 'mastercard');
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                             %
 % Question 1.e                                                                %
