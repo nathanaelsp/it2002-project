@@ -110,23 +110,24 @@ INSERT INTO customer (full_name, email, cc_number, cc_type) VALUES ('Deloris Sku
 % Question 1.e                                                                %
 %                                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Global X Social Media ETF', 'SOCL', 'n/a', 'n/a', 'NASDAQ', '$535.93');
-INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Hugoton Royalty Trust', 'HGT', 'Oil & Gas Production', 'Energy', 'NYSE', '$1040.60');
-INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Public Storage', 'PSA^U', 'Real Estate Investment Trusts', 'Consumer Services', 'NYSE', '$606.17');
-INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Donnelley Financial Solutions, Inc.', 'DFIN', 'Other Consumer Services', 'Consumer Services', 'NYSE', '$2799.72');
-INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Pingtan Marine Enterprise Ltd.', 'PME', 'n/a', 'n/a', 'NASDAQ', '$287.69');
-INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Vanguard Russell 3000 ETF', 'VTHR', 'n/a', 'n/a', 'NASDAQ', '$2744.53');
-INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Apollo Investment Corporation', 'AIY', 'n/a', 'n/a', 'NYSE', '$1496.86');
-INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Royal Dutch Shell PLC', 'RDS.B', 'n/a', 'n/a', 'NYSE', '$2053.72');
-INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Federated Premier Intermediate Municipal Income Fund', 'FPT', 'n/a', 'n/a', 'NYSE', '$2692.33');
-INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Bank of Hawaii Corporation', 'BOH', 'Major Banks', 'Finance', 'NYSE', '$2106.76');
-INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('GTY Technology Holdings, Inc.', 'GTYHW', 'Business Services', 'Finance', 'NASDAQ', '$1297.46');
-INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Teekay LNG Partners L.P.', 'TGP^A', 'n/a', 'n/a', 'NYSE', '$421.28');
-INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Centene Corporation', 'CNC', 'Medical Specialities', 'Health Care', 'NYSE', '$1004.87');
-INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Baidu, Inc.', 'BIDU', 'Computer Software: Programming, Data Processing', 'Technology', 'NASDAQ', '$123.91');
-INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('California Water  Service Group Holding', 'CWT', 'Water Supply', 'Public Utilities', 'NYSE', '$2146.51');
-INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Kirby Corporation', 'KEX', 'Marine Transportation', 'Consumer Services', 'NYSE', '$1459.40');
-INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Basic Energy Services, Inc.', 'BAS', 'Oilfield Services/Equipment', 'Energy', 'NYSE', '$633.87');
-INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('SPX Corporation', 'SPXC', 'Industrial Machinery/Components', 'Technology', 'NYSE', '$1150.39');
-INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Meridian Bioscience Inc.', 'VIVO', 'Biotechnology: In Vitro & In Vivo Diagnostic Substances', 'Health Care', 'NASDAQ', '$2004.69');
-INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Akamai Technologies, Inc.', 'AKAM', 'Business Services', 'Miscellaneous', 'NASDAQ', '$177.64');
+
+INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Turkish Investment Fund, Inc. (The)', 'TKF', 'n/a', 'n/a', 'NYSE', 876.62);
+INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Delta Air Lines, Inc.', 'DAL', 'Air Freight/Delivery Services', 'Transportation', 'NYSE', 159.47);
+INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Forward Pharma A/S', 'FWP', 'Major Pharmaceuticals', 'Health Care', 'NASDAQ', 305.17);
+INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Integer Holdings Corporation', 'ITGR', 'Industrial Machinery/Components', 'Miscellaneous', 'NYSE', 1280.53);
+INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Bank of America Corporation', 'BML^I', 'n/a', 'n/a', 'NYSE', 161.88);
+INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Transglobe Energy Corp', 'TGA', 'Oil & Gas Production', 'Energy', 'NASDAQ', 473.05);
+INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Ericsson', 'ERIC', 'Radio And Television Broadcasting And Communications Equipment', 'Technology', 'NASDAQ', 65.3);
+INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Build-A-Bear Workshop, Inc.', 'BBW', 'Recreational Products/Toys', 'Consumer Services', 'NYSE', 614.23);
+INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('HCA Healthcare, Inc.', 'HCA', 'Hospital/Nursing Management', 'Health Care', 'NYSE', 341.73);
+INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Arista Networks, Inc.', 'ANET', 'Computer Communications Equipment', 'Technology', 'NYSE', 837.73);
+INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Allstate Corporation (The)', 'ALL^A', 'n/a', 'n/a', 'NYSE', 849.88);
+INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Western Asset/Claymore U.S. Treasury Inflation Prot Secs Fd', 'WIA', 'n/a', 'n/a', 'NYSE', 362.19);
+INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Ballard Power Systems, Inc.', 'BLDP', 'Industrial Machinery/Components', 'Energy', 'NASDAQ', 176.7);
+INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('The KEYW Holding Corporation', 'KEYW', 'EDP Services', 'Technology', 'NASDAQ', 194.86);
+INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Titan Pharmaceuticals, Inc.', 'TTNP', 'Biotechnology: Biological Products (No Diagnostic Substances)', 'Health Care', 'NASDAQ', 1469.92);
+INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('BlackRock Capital Investment Corporation', 'BKCC', 'n/a', 'n/a', 'NASDAQ', 1449.66);
+INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Hudson Global, Inc.', 'HSON', 'Professional Services', 'Technology', 'NASDAQ', 354.5);
+INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('PIMCO California Municipal Income Fund III', 'PZC', 'n/a', 'n/a', 'NYSE', 25.72);
+INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('AptarGroup, Inc.', 'ATR', 'Plastic Products', 'Consumer Non-Durables', 'NYSE', 679.4);
+INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VALUES ('Texas Capital Bancshares, Inc.', 'TCBIW', 'Major Banks', 'Finance', 'NASDAQ', 760.91);
