@@ -93,8 +93,8 @@ INSERT INTO stock (stock_name, stock_symbol, industry, sector, market, price) VA
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 
 INSERT INTO portfolio (c_email, s_symbol,quantity)
-SELECT c.email,s.stock_symbol,ROUND(RANDOM()*99) + 1
-FROM customer AS c, stock AS s
+SELECT c.email,s.stock_symbol,num_series
+FROM customer AS c, stock AS s, generate_series(1,100) AS num_series
 ORDER BY RANDOM()
 LIMIT 500;
 
