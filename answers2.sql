@@ -24,13 +24,15 @@ GROUP BY cc_type
 HAVING COUNT(cc_type) >= (SELECT MAX(total_users) 
 						  FROM (SELECT COUNT(cc_type) AS total_users
 								FROM customer
-								GROUP BY cc_type) AS max_value)
+								GROUP BY cc_type) AS max_value);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                             %
 % Question 2.b                                                                %
 %                                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Filter out email addresses whose owner hold any IBM stocks (from customer table)
+
 SELECT c.full_name, c.email
 FROM customer c
 WHERE c.email NOT IN (
@@ -45,6 +47,11 @@ ORDER BY c.email;
 % Question 2.c                                                                %
 %                                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Take the sum product of the quantity of IBM stocks managed by the portal (from portfolio table) and the stock price (from stock table)
+
+SELECT sum(p.quantity*s.price) AS ibm_total_value
+FROM portfolio p, stock s
+WHERE s.stock_symbol = p.s_symbol AND s.stock_name = 'International Business Machines Corporation';
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                             %
@@ -58,4 +65,4 @@ GROUP BY full_name
 HAVING SUM(s1.price) >= (SELECT MAX(total_value)
 						 FROM(SELECT SUM(s2.price) AS total_value
 						FROM portfolio AS p2 INNER JOIN stock AS s2 ON p2.s_symbol = s2.stock_symbol
-						GROUP BY c_email) AS port_values)
+						GROUP BY c_email) AS port_values);
