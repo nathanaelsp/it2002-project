@@ -31,6 +31,14 @@ HAVING COUNT(cc_type) >= (SELECT MAX(total_users)
 % Question 2.b                                                                %
 %                                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+SELECT c.full_name, c.email
+FROM customer c
+WHERE c.email NOT IN (
+	SELECT DISTINCT c.email
+	FROM customer c, stock s, portfolio p
+	WHERE p.c_email = c.email AND p.s_symbol = s.stock_symbol
+	AND s.stock_name = 'International Business Machines Corporation')
+ORDER BY c.email;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                             %
