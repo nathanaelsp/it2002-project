@@ -45,6 +45,17 @@ ORDER BY c.email;
 % Question 2.c                                                                %
 %                                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+SELECT s1.total_quantity * s2.price AS total_value
+FROM (SELECT SUM(quantity) AS total_quantity, 
+      FROM portfolio
+      WHERE s_symbol = 'IBM'
+      GROUP BY s_symbol ) AS s1,
+      (SELECT price
+       FROM stock AS s
+       WHERE stock_symbol = 'IBM' 
+      LIMIT 1) AS s2 ;
+ 
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                             %
