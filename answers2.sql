@@ -18,6 +18,8 @@
 % Question 2.a                                                                %
 %                                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Return Credit Card type with the highest numbers of users
+
 SELECT cc_type
 FROM customer
 GROUP BY cc_type
@@ -31,7 +33,7 @@ HAVING COUNT(cc_type) >= (SELECT MAX(total_users)
 % Question 2.b                                                                %
 %                                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Filter out email addresses whose owner hold any IBM stocks (from customer table)
+% Filter out email addresses whose owner hold any IBM stocks (from customer table) and return the remaining full name(s) and email(s)
 
 SELECT c.full_name, c.email
 FROM customer c
@@ -59,6 +61,8 @@ GROUP BY s.price;
 % Question 2.d                                                                %
 %                                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Return the full name of customer(s) with the largest portfolio total value
+
 SELECT c.full_name
 FROM customer AS c, portfolio AS p1, stock AS s1
 WHERE c.email = p1.c_email AND p1.s_symbol = s1.stock_symbol
