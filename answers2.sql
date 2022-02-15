@@ -62,7 +62,7 @@ SELECT c.full_name
 FROM customer AS c, portfolio AS p1, stock AS s1
 WHERE c.email = p1.c_email AND p1.s_symbol = s1.stock_symbol
 GROUP BY full_name
-HAVING SUM(s1.price) >= (SELECT MAX(total_value)
-						 FROM(SELECT SUM(s2.price) AS total_value
+HAVING SUM(p1.quantity*s1.price) >= (SELECT MAX(total_value)
+						 FROM(SELECT SUM(p2.quantity*s2.price) AS total_value
 						FROM portfolio AS p2 INNER JOIN stock AS s2 ON p2.s_symbol = s2.stock_symbol
 						GROUP BY c_email) AS port_values);
