@@ -49,7 +49,7 @@ ORDER BY c.email;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Take the sum product of the quantity of IBM stocks managed by the portal (from portfolio table) and the stock price (from stock table)
 
-SELECT sum(p.quantity*s.price) AS ibm_total_value
+SELECT sum(p.quantity * s.price) AS ibm_total_value
 FROM portfolio p, stock s
 WHERE s.stock_symbol = p.s_symbol AND s.stock_name = 'International Business Machines Corporation';
 
@@ -62,7 +62,9 @@ SELECT c.full_name
 FROM customer AS c, portfolio AS p1, stock AS s1
 WHERE c.email = p1.c_email AND p1.s_symbol = s1.stock_symbol
 GROUP BY full_name
-HAVING SUM(p1.quantity*s1.price) >= (SELECT MAX(total_value)
-						 FROM(SELECT SUM(p2.quantity*s2.price) AS total_value
-						FROM portfolio AS p2 INNER JOIN stock AS s2 ON p2.s_symbol = s2.stock_symbol
-						GROUP BY c_email) AS port_values);
+HAVING SUM(p1.quantity * s1.price) >= (SELECT MAX(total_value) 
+									   FROM (SELECT SUM(p2.quantity * s2.price) AS total_value
+											 FROM portfolio AS p2, stock AS s2
+											 WHERE p2.s_symbol = s2.stock_symbol
+											 GROUP BY c_email)
+									   AS max_portfolio_values);
