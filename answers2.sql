@@ -49,16 +49,10 @@ ORDER BY c.email;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Take the sum product of the quantity of IBM stocks managed by the portal (from portfolio table) and the stock price (from stock table)
 
-<<<<<<< Updated upstream
-SELECT sum(p.quantity * s.price) AS ibm_total_value
-FROM portfolio p, stock s
-WHERE s.stock_symbol = p.s_symbol AND s.stock_name = 'International Business Machines Corporation';
-=======
 SELECT sum(p.quantity) * s.price AS total_value
 FROM portfolio p, stock s
 WHERE s.stock_symbol = p.s_symbol AND s.stock_name = 'International Business Machines Corporation'
 GROUP BY s.price;
->>>>>>> Stashed changes
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                             %
